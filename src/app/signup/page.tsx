@@ -1,19 +1,20 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 
-const Login: React.FC = () => {
+const Signup: React.FC = () => {
   return (
-    <div className="flex min-h-[100vh] items-center justify-center bg-[#0c0c0c] px-4 py-12 sm:px-6 lg:px-8">
+    <div className="flex min-h-[100vh] items-center justify-center bg-gradient-to-r from-[#000000] via-[#000000] to-[#1b294a]   px-4 py-12 sm:px-6 lg:px-8">
       <div className="mx-auto w-full max-w-md space-y-5">
         <div>
-          <h2 className="mt-2 text-center text-2xl font-bold tracking-tight text-[#f0f0f0]">
-            Welcome back
+          <h2 className="mt-2 text-center text-3xl font-bold tracking-tight text-[#f0f0f0]">
+            Welcome to Thaara AI
           </h2>
-          <h1 className="mt-2 text-center text-4xl font-bold tracking-tight text-[#f0f0f0]">
-            Sign in to Project
-          </h1>
+          {/* <h1 className="mt-2 text-center text-4xl font-bold tracking-tight text-[#f0f0f0]">
+            Sign up now
+          </h1> */}
         </div>
         <form className="space-y-3" action="#" method="POST">
           <div>
@@ -28,7 +29,30 @@ const Login: React.FC = () => {
                 id="username"
                 type="text"
                 placeholder="Username"
-                className="block w-full h-11 rounded-md border-[#555] bg-[#0c0c0c] pl-10 pr-3 py-2 text-[#f0f0f0] placeholder-[#a0a0a0] focus:border-[#55efc4] focus:ring-[#55efc4]"
+                className="block w-full h-11 rounded-md border-[#555] bg-[#ffffff00] pl-10 pr-3 py-2 text-[#f0f0f0] placeholder-[#a0a0a0] focus:border-[#55efc4] focus:ring-[#55efc4]"
+              />
+            </div>
+          </div>
+          <div>
+            <Label htmlFor="email" className="sr-only">
+              email
+            </Label>
+            <div className="relative rounded-md shadow-sm">
+              <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+              <Image
+                src="/mail.svg"
+                alt="Vercel Logo"
+                className="dark:invert"
+                width={20}
+                height={20}
+                priority
+              />
+              </div>
+              <Input
+                id="email"
+                type="text"
+                placeholder="Email"
+                className="block w-full h-11 rounded-md border-[#555] bg-[#ffffff00] pl-10 pr-3 py-2 text-[#f0f0f0] placeholder-[#a0a0a0] focus:border-[#55efc4] focus:ring-[#55efc4]"
               />
             </div>
           </div>
@@ -44,7 +68,7 @@ const Login: React.FC = () => {
                 id="password"
                 type="password"
                 placeholder="Password"
-                className="block w-full h-11 rounded-md border-[#555] bg-[#0c0c0c] pl-10 pr-3 py-2 text-[#f0f0f0] placeholder-[#a0a0a0] focus:border-[#55efc4] focus:ring-[#55efc4]"
+                className="block w-full h-11 rounded-md border-[#555] bg-[#ffffff00] pl-10 pr-3 py-2 text-[#f0f0f0] placeholder-[#a0a0a0] focus:border-[#55efc4] focus:ring-[#55efc4]"
               />
             </div>
           </div>
@@ -84,7 +108,7 @@ const Login: React.FC = () => {
   );
 };
 
-export default Login;
+export default Signup;
 
 function GoogleIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
