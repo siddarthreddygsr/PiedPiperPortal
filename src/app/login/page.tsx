@@ -5,13 +5,14 @@ import { Button } from "@/components/ui/button";
 
 const Login: React.FC = () => {
   return (
-    <div className="flex min-h-[100vh] items-center justify-center bg-[#0c0c0c] px-4 py-12 sm:px-6 lg:px-8">
+    // <div className="flex min-h-[100vh] items-center justify-center bg-[#0c0c0c] px-4 py-12 sm:px-6 lg:px-8">
+    <div className="flex min-h-[100vh] items-center justify-center bg-background px-4 py-12 sm:px-6 lg:px-8">
       <div className="mx-auto w-full max-w-md space-y-5">
         <div>
-          <h2 className="mt-2 text-center text-2xl font-bold tracking-tight text-[#f0f0f0]">
+          <h2 className="mt-2 text-center text-3xl font-bold tracking-tight text-foreground">
             Welcome back
           </h2>
-          <h1 className="mt-2 text-center text-4xl font-bold tracking-tight text-[#f0f0f0]">
+          <h1 className="mt-2 text-center text-4xl font-bold tracking-tight text-foreground">
             Sign in to Project
           </h1>
         </div>
@@ -28,7 +29,7 @@ const Login: React.FC = () => {
                 id="username"
                 type="text"
                 placeholder="Username"
-                className="block w-full h-11 rounded-md border-[#555] bg-[#0c0c0c] pl-10 pr-3 py-2 text-[#f0f0f0] placeholder-[#a0a0a0] focus:border-[#55efc4] focus:ring-[#55efc4]"
+                className="block w-full h-11 rounded-md border-[#555] bg-[#ffffff00] pl-10 pr-3 py-2 text-foreground placeholder-[#a0a0a0] focus:border-[var(--accent-color)] focus:ring-[var(--accent-color]"
               />
             </div>
           </div>
@@ -44,17 +45,17 @@ const Login: React.FC = () => {
                 id="password"
                 type="password"
                 placeholder="Password"
-                className="block w-full h-11 rounded-md border-[#555] bg-[#0c0c0c] pl-10 pr-3 py-2 text-[#f0f0f0] placeholder-[#a0a0a0] focus:border-[#55efc4] focus:ring-[#55efc4]"
+                className="block w-full h-11 rounded-md border-[#555] bg-[#ffffff00] pl-10 pr-3 py-2 text-foreground placeholder-[#a0a0a0] focus:border-[var(--accent-color)] focus:ring-[var(--accent-color]"
               />
             </div>
           </div>
           <div>
             <Button
               type="submit"
-              className="group relative flex w-full h-11 justify-center rounded-md border border-transparent bg-[#55efc4] py-2 px-4 text-sm font-medium text-[#0c0c0c] hover:bg-[#00b894] focus:outline-none focus:ring-2 focus:ring-[#55efc4] focus:ring-offset-2"
+              className="group relative flex w-full h-11 justify-center rounded-md border border-transparent bg-accent py-2 px-4 text-sm font-medium text-accent-foreground"
             >
               <span className="absolute inset-y-0 left-0 flex items-center pl-3">
-                <LogInIcon className="h-5 w-5 text-[#0c0c0c] group-hover:text-[#0c0c0c]" />
+                <LogInIcon className="h-5 w-5 text-accent-foreground group-hover:text-accent-foreground" />
               </span>
               Sign in
             </Button>
@@ -62,7 +63,7 @@ const Login: React.FC = () => {
           <div>
             <Button
               variant="outline"
-              className="group relative flex w-full h-12 bg-white justify-center rounded-md border py-2 px-4 text-sm font-medium text-[#000] hover:text-[#000] hover:bg-[#e8e8e8] focus:outline-none focus:ring-2 focus:ring-[#55efc4] focus:ring-offset-2"
+              className="group relative flex w-full h-12 bg-white justify-center rounded-md border py-2 px-4 text-sm font-medium text-[#000] hover:text-[#000] hover:bg-[#e8e8e8]"
             >
               <span className="absolute inset-y-0 left-0 flex items-center pl-3">
                 <GoogleIcon className="h-5 w-5 fill-black" />
@@ -74,7 +75,7 @@ const Login: React.FC = () => {
         <p className="mt-1 text-center text-sm text-[#a0a0a0]">
           <Link
             href="/signup"
-            className="font-medium text-[#55efc4] hover:text-[#00b894]"
+            className="font-medium text-[var(--accent-color)]"
           >
             sign up for a new account
           </Link>
