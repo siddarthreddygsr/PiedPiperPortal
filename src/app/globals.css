@@ -5,7 +5,7 @@
 :root {
   --background-color: rgba(255, 255, 255, 0);
   --foreground-color: black;
-  --gradient-background: #dce1f8;
+  --gradient-background: linear-gradient(to right, #ffffff, #ffffff, #dce1f8);
   --accent-color: #6a5ec2;
   --accent-foreground-color: white;
 }
