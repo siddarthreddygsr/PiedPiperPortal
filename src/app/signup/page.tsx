@@ -6,15 +6,12 @@ import { Button } from "@/components/ui/button";
 
 const Signup: React.FC = () => {
   return (
-    <div className="flex min-h-[100vh] items-center justify-center bg-gradient-to-r from-[#000000] via-[#000000] to-[#1b294a]   px-4 py-12 sm:px-6 lg:px-8">
+    <div className="flex min-h-[100vh] items-center justify-center bg-background px-4 py-12 sm:px-6 lg:px-8">
       <div className="mx-auto w-full max-w-md space-y-5">
         <div>
-          <h2 className="mt-2 text-center text-3xl font-bold tracking-tight text-[#f0f0f0]">
+          <h2 className="mt-2 text-center text-3xl font-bold tracking-tight text-foreground">
             Welcome to Thaara AI
           </h2>
-          {/* <h1 className="mt-2 text-center text-4xl font-bold tracking-tight text-[#f0f0f0]">
-            Sign up now
-          </h1> */}
         </div>
         <form className="space-y-3" action="#" method="POST">
           <div>
@@ -29,30 +26,30 @@ const Signup: React.FC = () => {
                 id="username"
                 type="text"
                 placeholder="Username"
-                className="block w-full h-11 rounded-md border-[#555] bg-[#ffffff00] pl-10 pr-3 py-2 text-[#f0f0f0] placeholder-[#a0a0a0] focus:border-[#55efc4] focus:ring-[#55efc4]"
+                className="block w-full h-11 rounded-md border-[#555] bg-[#ffffff00] pl-10 pr-3 py-2 text-foreground placeholder-[#a0a0a0] focus:border-[#55efc4] focus:ring-[#55efc4]"
               />
             </div>
           </div>
           <div>
             <Label htmlFor="email" className="sr-only">
-              email
+              Email
             </Label>
             <div className="relative rounded-md shadow-sm">
               <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-              <Image
-                src="/mail.svg"
-                alt="Vercel Logo"
-                className="dark:invert"
-                width={20}
-                height={20}
-                priority
-              />
+                <Image
+                  src="/mail.svg"
+                  alt="Email Icon"
+                  className="dark:invert"
+                  width={20}
+                  height={20}
+                  priority
+                />
               </div>
               <Input
                 id="email"
                 type="text"
                 placeholder="Email"
-                className="block w-full h-11 rounded-md border-[#555] bg-[#ffffff00] pl-10 pr-3 py-2 text-[#f0f0f0] placeholder-[#a0a0a0] focus:border-[#55efc4] focus:ring-[#55efc4]"
+                className="block w-full h-11 rounded-md border-[#555] bg-[#ffffff00] pl-10 pr-3 py-2 text-foreground placeholder-[#a0a0a0] focus:border-[#55efc4] focus:ring-[#55efc4]"
               />
             </div>
           </div>
@@ -68,17 +65,17 @@ const Signup: React.FC = () => {
                 id="password"
                 type="password"
                 placeholder="Password"
-                className="block w-full h-11 rounded-md border-[#555] bg-[#ffffff00] pl-10 pr-3 py-2 text-[#f0f0f0] placeholder-[#a0a0a0] focus:border-[#55efc4] focus:ring-[#55efc4]"
+                className="block w-full h-11 rounded-md border-[#555] bg-[#ffffff00] pl-10 pr-3 py-2 text-foreground placeholder-[#a0a0a0] focus:border-[#55efc4] focus:ring-[#55efc4]"
               />
             </div>
           </div>
           <div>
             <Button
               type="submit"
-              className="group relative flex w-full h-11 justify-center rounded-md border border-transparent bg-[#55efc4] py-2 px-4 text-sm font-medium text-[#0c0c0c] hover:bg-[#00b894] focus:outline-none focus:ring-2 focus:ring-[#55efc4] focus:ring-offset-2"
+              className="group relative flex w-full h-11 justify-center rounded-md border border-transparent bg-accent py-2 px-4 text-sm font-medium text-accent-foreground"
             >
               <span className="absolute inset-y-0 left-0 flex items-center pl-3">
-                <LogInIcon className="h-5 w-5 text-[#0c0c0c] group-hover:text-[#0c0c0c]" />
+                <LogInIcon className="h-5 w-5 text-accent-foreground group-hover:text-accent-foreground" />
               </span>
               Sign up
             </Button>
@@ -86,7 +83,7 @@ const Signup: React.FC = () => {
           <div>
             <Button
               variant="outline"
-              className="group relative flex w-full h-12 bg-white justify-center rounded-md border py-2 px-4 text-sm font-medium text-[#000] hover:text-[#000] hover:bg-[#e8e8e8] focus:outline-none focus:ring-2 focus:ring-[#55efc4] focus:ring-offset-2"
+              className="group relative flex w-full h-12 bg-white justify-center rounded-md border py-2 px-4 text-sm font-medium text-black hover:text-black hover:bg-[#e8e8e8] focus:outline-none focus:ring-2 focus:ring-[#55efc4] focus:ring-offset-2"
             >
               <span className="absolute inset-y-0 left-0 flex items-center pl-3">
                 <GoogleIcon className="h-5 w-5 fill-black" />
@@ -98,7 +95,7 @@ const Signup: React.FC = () => {
         <p className="mt-1 text-center text-sm text-[#a0a0a0]">
           <Link
             href="/login"
-            className="font-medium text-[#55efc4] hover:text-[#00b894]"
+            className="font-medium text-[var(--accent-color)] hover:text-[#00b894]"
           >
             Login to an existing account
           </Link>
