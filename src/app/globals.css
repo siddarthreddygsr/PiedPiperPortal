@@ -5,7 +5,7 @@
 :root {
   --background-color: rgba(255, 255, 255, 0);
   --foreground-color: black;
-  --gradient-background: linear-gradient(to right, #ffffff, #ffffff, #dce1f8);
+  --gradient-background: linear-gradient(to right, #ffffff, #e0e6ff, #d3dbfe);
   --accent-color: #6a5ec2;
   --accent-foreground-color: white;
 }
@@ -19,7 +19,7 @@
 }
 
 body {
-  background-color: var(--background-color);
+  background: var(--gradient-background);
   color: var(--foreground-color);
 }
 
