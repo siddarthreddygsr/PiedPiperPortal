@@ -12,9 +12,6 @@ const Login: React.FC = () => {
           <h2 className="mt-2 text-center text-3xl font-bold tracking-tight text-foreground">
             Welcome back
           </h2>
-          <h1 className="mt-2 text-center text-4xl font-bold tracking-tight text-foreground">
-            Sign in to Project
-          </h1>
         </div>
         <form className="space-y-3" action="#" method="POST">
           <div>

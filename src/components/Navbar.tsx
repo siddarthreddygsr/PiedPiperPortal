@@ -65,7 +65,7 @@ export default function Header() {
           </Link>
           <Link
             href="#"
-            className="inline-flex h-9 w-max items-center justify-center rounded-full bg-accent px-4 py-2 text-sm font-medium text-accent-foreground shadow transition-colors hover:bg-accent/90 focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50"
+            className="inline-flex h-9 w-max items-center justify-center rounded-full bg-accent px-4 py-2 text-sm font-medium text-accent-foreground shadow transition-colors disabled:pointer-events-none disabled:opacity-50"
             prefetch={false}
           >
             Try Now
@@ -110,7 +110,7 @@ export default function Header() {
                 </Link>
                 <Link
                   href="#"
-                  className="inline-flex h-9 w-max items-center justify-center rounded-full bg-accent px-4 py-2 text-sm font-medium text-accent-foreground shadow transition-colors hover:bg-accent/90 focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50"
+                  className="inline-flex h-9 w-max items-center justify-center rounded-full bg-accent px-4 py-2 text-sm font-medium text-accent-foreground shadow transition-colors disabled:pointer-events-none disabled:opacity-50"
                   prefetch={false}
                 >
                   Try Now
