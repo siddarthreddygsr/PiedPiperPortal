@@ -1,11 +1,49 @@
+"use client"
 import Link from "next/link";
+import { useState } from "react";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { useRouter } from "next/navigation";
+import { useAuth } from "@/context/AuthContext";
 
 const Login: React.FC = () => {
+  const router = useRouter();
+  const { login } = useAuth();
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    const payload = new URLSearchParams();
+    payload.append("username", username);
+    payload.append("password", password);
+
+    try {
+      const response = await fetch("http://127.0.0.1:8000/auth/token", {
+        method: "POST",
+        headers: {
+          "Accept": "application/json",
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: payload.toString(),
+      });
+
+      if (!response.ok) {
+        throw new Error("Login failed");
+      }
+
+      const data = await response.json();
+      login(data.access_token);
+      router.push("/");
+    } catch (error: any) {
+      setError(error.message);
+    }
+  };
+
   return (
-    // <div className="flex min-h-[100vh] items-center justify-center bg-[#0c0c0c] px-4 py-12 sm:px-6 lg:px-8">
     <div className="flex min-h-[100vh] items-center justify-center bg-background px-4 py-12 sm:px-6 lg:px-8">
       <div className="mx-auto w-full max-w-md space-y-5">
         <div>
@@ -13,7 +51,7 @@ const Login: React.FC = () => {
             Welcome back
           </h2>
         </div>
-        <form className="space-y-3" action="#" method="POST">
+        <form className="space-y-3" onSubmit={handleSubmit}>
           <div>
             <Label htmlFor="username" className="sr-only">
               Username
@@ -26,7 +64,10 @@ const Login: React.FC = () => {
                 id="username"
                 type="text"
                 placeholder="Username"
-                className="block w-full h-11 rounded-md border-[#555] bg-[#ffffff00] pl-10 pr-3 py-2 text-foreground placeholder-[#a0a0a0] focus:border-[var(--accent-color)] focus:ring-[var(--accent-color]"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                className="block w-full h-11 rounded-md border-[#555] bg-[#ffffff00] pl-10 pr-3 py-2 text-foreground placeholder-[#a0a0a0] focus:border-[var(--accent-color)] focus:ring-[var(--accent-color)]"
+                required
               />
             </div>
           </div>
@@ -42,10 +83,14 @@ const Login: React.FC = () => {
                 id="password"
                 type="password"
                 placeholder="Password"
-                className="block w-full h-11 rounded-md border-[#555] bg-[#ffffff00] pl-10 pr-3 py-2 text-foreground placeholder-[#a0a0a0] focus:border-[var(--accent-color)] focus:ring-[var(--accent-color]"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                className="block w-full h-11 rounded-md border-[#555] bg-[#ffffff00] pl-10 pr-3 py-2 text-foreground placeholder-[#a0a0a0] focus:border-[var(--accent-color)] focus:ring-[var(--accent-color)]"
+                required
               />
             </div>
           </div>
+          {error && <p className="text-red-500 text-center">{error}</p>} {/* Display error message */}
           <div>
             <Button
               type="submit"
