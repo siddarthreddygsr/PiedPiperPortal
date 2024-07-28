@@ -1,6 +1,7 @@
 "use client"
+
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -9,14 +10,19 @@ import { useAuth } from "@/context/AuthContext";
 
 const Login: React.FC = () => {
   const router = useRouter();
-  const { login } = useAuth();
+  const { login, isAuthenticated } = useAuth();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
+  useEffect(() => {
+    if (isAuthenticated) {
+      router.push('/');
+    }
+  }, [isAuthenticated, router]);
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
     const payload = new URLSearchParams();
     payload.append("username", username);
     payload.append("password", password);
@@ -53,9 +59,7 @@ const Login: React.FC = () => {
         </div>
         <form className="space-y-3" onSubmit={handleSubmit}>
           <div>
-            <Label htmlFor="username" className="sr-only">
-              Username
-            </Label>
+            <Label htmlFor="username" className="sr-only">Username</Label>
             <div className="relative rounded-md shadow-sm">
               <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
                 <UserIcon className="h-5 w-5 text-[#a0a0a0]" />
@@ -72,9 +76,7 @@ const Login: React.FC = () => {
             </div>
           </div>
           <div>
-            <Label htmlFor="password" className="sr-only">
-              Password
-            </Label>
+            <Label htmlFor="password" className="sr-only">Password</Label>
             <div className="relative rounded-md shadow-sm">
               <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
                 <LockIcon className="h-5 w-5 text-[#a0a0a0]" />
@@ -90,14 +92,14 @@ const Login: React.FC = () => {
               />
             </div>
           </div>
-          {error && <p className="text-red-500 text-center">{error}</p>} {/* Display error message */}
+          {error && <p className="text-red-500 text-center">{error}</p>}
           <div>
             <Button
               type="submit"
-              className="group relative flex w-full h-11 justify-center rounded-md border border-transparent bg-accent py-2 px-4 text-sm font-medium text-accent-foreground"
+              className="group relative flex w-full h-11 justify-center rounded-md border border-transparent bg-[var(--accent-color)] py-2 px-4 text-sm font-medium text-accent-foreground hover:bg-[var(--accent-color)]"
             >
               <span className="absolute inset-y-0 left-0 flex items-center pl-3">
-                <LogInIcon className="h-5 w-5 text-accent-foreground group-hover:text-accent-foreground" />
+                <LogInIcon className="h-5 w-5 text-accent-foreground" />
               </span>
               Sign in
             </Button>
@@ -105,7 +107,7 @@ const Login: React.FC = () => {
           <div>
             <Button
               variant="outline"
-              className="group relative flex w-full h-12 bg-white justify-center rounded-md border py-2 px-4 text-sm font-medium text-[#000] hover:text-[#000] hover:bg-[#e8e8e8]"
+              className="group relative flex w-full h-12 bg-white justify-center rounded-md border-none py-2 px-4 text-sm font-medium text-[#000] hover:text-[#000] hover:bg-[#e8e8e8]"
             >
               <span className="absolute inset-y-0 left-0 flex items-center pl-3">
                 <GoogleIcon className="h-5 w-5 fill-black" />
@@ -115,12 +117,7 @@ const Login: React.FC = () => {
           </div>
         </form>
         <p className="mt-1 text-center text-sm text-[#a0a0a0]">
-          <Link
-            href="/signup"
-            className="font-medium text-[var(--accent-color)]"
-          >
-            sign up for a new account
-          </Link>
+          <Link href="/signup" className="font-medium text-[var(--accent-color)]">sign up for a new account</Link>
         </p>
       </div>
     </div>

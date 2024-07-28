@@ -5,17 +5,21 @@ import { useRouter } from 'next/navigation';
 import { useAuth } from '@/context/AuthContext';
 
 const HomePage: React.FC = () => {
-  const { isAuthenticated } = useAuth();
+  const { isAuthenticated, initializing } = useAuth();
   const router = useRouter();
 
   useEffect(() => {
-    if (!isAuthenticated) {
+    if (!initializing && !isAuthenticated) {
       router.push('/login');
     }
-  }, [isAuthenticated, router]);
+  }, [isAuthenticated, initializing, router]);
+
+  if (initializing) {
+    return <div>Loading...</div>; // Show a loading state while checking authentication
+  }
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-background">
       THIS IS A PROTECTED PAGE
     </div>
   );
