@@ -32,16 +32,8 @@ body {
   background: var(--gradient-background);
 }
 
-.bg-gradient {
-  background-color: var(--gradient-background);
-}
-
 .text-foreground {
   color: var(--foreground-color);
-}
-
-.bg-accent {
-  background-color: var(--accent-color);
 }
 
 .text-accent-foreground {
