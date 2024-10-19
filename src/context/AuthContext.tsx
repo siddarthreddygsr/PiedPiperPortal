@@ -15,12 +15,31 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [initializing, setInitializing] = useState(true);
 
+  const validateToken = async (token: string) => {
+    try {
+      const response = await fetch(`http://127.0.0.1:8000/auth/verify-token/${token}`, {
+          method: "GET",
+          headers: {
+              "Accept": "application/json",
+          },
+      });
+      return response.ok;
+    } catch (error) {
+      console.error("Token validation failed:", error);
+      return false;
+    }
+  };
+
   useEffect(() => {
     const token = localStorage.getItem('token');
     if (token) {
-      setIsAuthenticated(true);
+      validateToken(token).then(isValid => {
+        setIsAuthenticated(isValid);
+        setInitializing(false);
+      });
+    } else {
+      setInitializing(false);
     }
-    setInitializing(false);
   }, []);
 
   const login = (token: string) => {

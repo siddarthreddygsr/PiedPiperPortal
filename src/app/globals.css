@@ -12,9 +12,11 @@
 
 .dark {
   --background-color: #00000000;
-  --gradient-background: linear-gradient(to right, #000000, #000000, #1b294a);
-  --foreground-color: white;
+  --gradient-background: linear-gradient(to right, #0f0f0f, #181818, #1b294a);
   --accent-color: #55efc4;
+  /* --accent-color: #38c09c;
+  --gradient-background: linear-gradient(to right, #0f0f0f, #181818, #a32633); */
+  --foreground-color: white;
   --accent-foreground-color: black;
 }
 
